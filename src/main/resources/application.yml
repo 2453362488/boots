@@ -1,3 +1,4 @@
+
 spring:
   datasource:
     username: root
@@ -5,3 +6,18 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/ssm_crud
     type: com.alibaba.druid.pool.DruidDataSource
+server:
+    port: 8080
+
+person:
+  age: 18
+  boss: false
+  birth: 2017/12/12
+  maps: {k1: v1,k2: v2}
+  lists:
+    - lisi
+    - zhaoliu
+  dog:
+    name: 小狗
+    age: 2
+  last-name: 张三
