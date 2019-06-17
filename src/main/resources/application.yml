@@ -6,11 +6,28 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/ssm_crud
     type: com.alibaba.druid.pool.DruidDataSource
+  profiles:
+    active: dev
+  resources:
+    # SpringBoot 对静态文件的处理
+    #static-locations: classpath:/hello/,classpath:/ante/
 server:
     port: 8080
+# 开启 SpringBoot 的 debug
+debug: true
+---
+server:
+  port: 8081
+spring:
+  profiles: dev
+---
+server:
+  port: 8082
+spring:
+  profiles: prod
 
 person:
-  age: 18
+  age: ${random.int}
   boss: false
   birth: 2017/12/12
   maps: {k1: v1,k2: v2}
@@ -18,6 +35,6 @@ person:
     - lisi
     - zhaoliu
   dog:
-    name: 小狗
+    name: ${person.hello}_dog
     age: 2
-  last-name: 张三
+  last-name: 张三${random.uuid}
